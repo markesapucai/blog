@@ -4,7 +4,7 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "posts"
+    "displayName": "Post"
   },
   "options": {
     "draftAndPublish": true
@@ -34,15 +34,8 @@
     },
     "author": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "posts"
-    },
-    "categorie": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::categorie.categorie",
-      "inversedBy": "posts"
+      "relation": "oneToOne",
+      "target": "api::author.author"
     }
   }
 }
