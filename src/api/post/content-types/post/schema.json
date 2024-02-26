@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "Post"
+    "displayName": "Post",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +17,12 @@
       "required": true
     },
     "cover": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "content": {
       "type": "string",
@@ -34,8 +35,9 @@
     },
     "author": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::author.author"
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "posts"
     }
   }
 }
