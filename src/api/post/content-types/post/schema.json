@@ -24,7 +24,7 @@
       "required": true
     },
     "content": {
-      "type": "blocks",
+      "type": "string",
       "required": true
     },
     "slug": {
