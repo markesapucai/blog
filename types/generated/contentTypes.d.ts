@@ -795,6 +795,11 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   };
   attributes: {
     Author: Attribute.String & Attribute.Required;
+    posts: Attribute.Relation<
+      'api::author.author',
+      'oneToMany',
+      'api::post.post'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -819,6 +824,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'Post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -826,11 +832,11 @@ export interface ApiPostPost extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     cover: Attribute.Media & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
+    content: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::post.post', 'title'> & Attribute.Required;
     author: Attribute.Relation<
       'api::post.post',
-      'oneToOne',
+      'manyToOne',
       'api::author.author'
     >;
     createdAt: Attribute.DateTime;
